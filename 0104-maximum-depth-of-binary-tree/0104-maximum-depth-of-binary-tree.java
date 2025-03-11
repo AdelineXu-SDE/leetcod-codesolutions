@@ -15,31 +15,16 @@
  */
 class Solution {
     public int maxDepth(TreeNode root) {
-        //DS: Tree and Queue
-        //A:DFS
-        //time: O(V+E) sp: O(n)
+        //DS:Tree
+        //A:BFS
+        //O(V+E) O(h)
+
         if(root == null) return 0;
 
-        int depth = 0;
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
+        int leftDepth = maxDepth(root.left);
+        int rightDepth = maxDepth(root.right);
 
-        while(!queue.isEmpty()){
-            int size = queue.size();
-            for(int i = 0; i < size; i++){
-                TreeNode node = queue.poll();
-                if(node.left != null) queue.offer(node.left);
-                if(node.right != null) queue.offer(node.right);
-            }
-            depth++;
-            
-        }
-        return depth;
-
-
-        
-
-
+        return Math.max(leftDepth, rightDepth) + 1;
         
     }
 }
