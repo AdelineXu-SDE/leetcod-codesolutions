@@ -14,13 +14,21 @@
  * }
  */
 class Solution {
+    private int sum = 0;
     public boolean hasPathSum(TreeNode root, int targetSum) {
-        //DA: Tree
-        //A: BFS
-        //O(O+V)
-        //base case: root to leaf path with the target sum
-        if(root == null) return false;
-        if(root.left == null && root.right == null && root.val == targetSum) return true;
-        return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);   
+        return dfs(root, targetSum);
+        
+    }
+
+    private boolean dfs(TreeNode node, int targetSum){
+        //base case
+        if(node == null) return false;;
+        targetSum -= node.val;
+
+        if(node.left == null && node.right == null){
+            return targetSum == 0;
+        }
+        return dfs(node.left, targetSum) || dfs(node.right, targetSum);
+
     }
 }
