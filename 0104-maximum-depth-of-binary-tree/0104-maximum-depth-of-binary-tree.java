@@ -15,10 +15,6 @@
  */
 class Solution {
     public int maxDepth(TreeNode root) {
-        //DS:Tree
-        //A:BFS
-        //O(V+E) O(h)
-
         if(root == null) return 0;
 
         int leftDepth = maxDepth(root.left);
