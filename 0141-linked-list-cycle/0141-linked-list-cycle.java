@@ -11,11 +11,11 @@
  */
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        //DA: linkedlist
-        //A: two pointers
-        //O(n)
+        if(head == null) return false;
+
         ListNode fast = head;
         ListNode slow = head;
+
         while(fast != null && fast.next != null){
             fast = fast.next.next;
             slow = slow.next;
@@ -23,6 +23,8 @@ public class Solution {
                 return true;
             }
         }
-        return false;    
+        return false;
+
+        
     }
 }
