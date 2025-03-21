@@ -10,18 +10,17 @@
  */
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
-        //DS: LinkedList
-        //O(n)
-
         if(head == null) return head;
 
-        ListNode curr = head;
-        while(curr != null && curr.next != null){
-            if(curr.next != null && curr.next.val == curr.val){
-                curr.next = curr.next.next;
+        ListNode cur = head;
+
+        while(cur != null && cur.next != null){
+            if(cur.val == cur.next.val){
+                
+                cur.next = cur.next.next;
             }else{
-                curr = curr.next;
-            }
+                cur = cur.next;
+            }  
         }
         return head;
         
