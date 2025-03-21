@@ -12,7 +12,7 @@ class Solution {
     public ListNode swapPairs(ListNode head) {
         if(head == null || head.next == null) return head;
 
-        ListNode dummy = new ListNode(0);
+        ListNode dummy = new ListNode(-1);
         dummy.next = head;
         ListNode pre = dummy;
 
@@ -24,7 +24,8 @@ class Solution {
             second.next = first;
             pre.next = second;
             pre = first;
-        }  
-        return dummy.next; 
+        }
+        return dummy.next;
+        
     }
 }
