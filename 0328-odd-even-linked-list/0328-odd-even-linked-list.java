@@ -10,27 +10,22 @@
  */
 class Solution {
     public ListNode oddEvenList(ListNode head) {
-        if(head == null || head.next == null) return head;
-        //DS: LinkedList
-        //A:two pointers
-        //O(n)
-        //crete two pointers, fast from 0 and slow from 1, then both remove twice
+        if(head == null) return head;
 
         ListNode odd = head;
-        ListNode even = head.next;
-        ListNode evenHead = even;
-
+        ListNode even = odd.next;
+        ListNode cur = even;
 
         while(even != null && even.next != null){
-            odd.next = even.next;
-            odd = odd.next;
+            odd.next = odd.next.next;
+            even.next = odd.next.next;
 
-            even.next = odd.next;
+            odd = odd.next;
             even = even.next;
         }
 
-        odd.next = evenHead;
-        return head;
-        
+        odd.next = cur;
+
+        return head;   
     }
 }
