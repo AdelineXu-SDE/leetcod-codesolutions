@@ -3,7 +3,7 @@ class MyQueue {
     Stack<Integer> stack1 = new Stack<>();
     Stack<Integer> stack2 = new Stack<>();
     public MyQueue() {
-
+        
     }
     
     public void push(int x) {
@@ -12,13 +12,12 @@ class MyQueue {
     }
     
     public int pop() {
-        shiftStacksIfNeeded();
-        return stack2.pop();
-        
+        neededShift();
+        return stack2.pop();   
     }
     
     public int peek() {
-        shiftStacksIfNeeded();
+        neededShift();
         return stack2.peek();
     }
     
@@ -26,7 +25,7 @@ class MyQueue {
         return stack1.isEmpty() && stack2.isEmpty();
         
     }
-    private void shiftStacksIfNeeded(){
+    private void neededShift(){
         if(stack2.isEmpty()){
             while(!stack1.isEmpty()){
                 stack2.push(stack1.pop());
