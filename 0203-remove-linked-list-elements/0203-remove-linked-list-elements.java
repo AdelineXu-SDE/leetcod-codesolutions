@@ -15,7 +15,7 @@ class Solution {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         ListNode cur = dummy;
-
+        
         while(cur != null){
             while(cur.next != null && cur.next.val == val){
                 cur.next = cur.next.next;
@@ -23,6 +23,5 @@ class Solution {
             cur = cur.next;
         }
         return dummy.next;
-        
     }
 }
