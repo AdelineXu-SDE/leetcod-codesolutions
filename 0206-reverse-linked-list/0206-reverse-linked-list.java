@@ -10,19 +10,18 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        //DS: linkedList
-        //A: reverse
-        //O(n)+O(1)
-        //pointer head.next = pre
+        if(head == null) return head;
+
         ListNode pre = null;
-        ListNode current = head;
-    
-        while(current != null){
-            ListNode next = current.next;
-            current.next = pre;
-            pre = current;
-            current = next;
+        ListNode cur = head;
+
+        while(cur != null){
+            ListNode next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
         }
         return pre;
+        
     }
 }
