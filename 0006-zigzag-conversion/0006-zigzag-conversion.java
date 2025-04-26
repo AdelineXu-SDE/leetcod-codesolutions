@@ -1,7 +1,6 @@
 class Solution {
     public String convert(String s, int numRows) {
         if(numRows == 1 || s.length() <= numRows) return s;
-        int n = s.length();
 
         StringBuilder[] rows = new StringBuilder[numRows];
         for(int i = 0; i < numRows; i++){
@@ -10,8 +9,7 @@ class Solution {
 
         int curRow = 0;
         boolean goingDown = false;
-        
-   
+
         for(char c : s.toCharArray()){
             rows[curRow].append(c);
             if(curRow == 0 || curRow == numRows - 1){
@@ -24,6 +22,8 @@ class Solution {
         for(StringBuilder row : rows){
             sb.append(row);
         }
-        return sb.toString();   
+
+        return sb.toString();
+        
     }
 }
