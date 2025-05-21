@@ -14,20 +14,26 @@ class Solution {
 
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        ListNode cur = dummy;
 
-        while(cur.next != null && cur.next.next != null){
-            if(cur.next.val == cur.next.next.val){
-                int temp = cur.next.val;
-                while(cur.next != null && cur.next.val == temp){
-                    cur.next = cur.next.next;
+        ListNode cur = head;
+        ListNode pre = dummy;
+
+        while(cur != null){
+            if(cur.next != null && cur.val == cur.next.val){
+                int dupVal = cur.val;
+                while(cur != null && cur.val == dupVal){
+                    cur = cur.next;
                 }
+                pre.next = cur;
             }else{
+                pre = cur;
                 cur = cur.next;
+            
             }
-           
 
-        }   
+        }
+
         return dummy.next;
+        
     }
 }
